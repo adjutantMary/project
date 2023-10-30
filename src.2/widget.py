@@ -1,3 +1,5 @@
+import masks
+
 
 def get_hided(bill_number: str):
     '''
@@ -21,6 +23,7 @@ def get_data(data: str):
     data_string = data[0:9].split('-')
     return f'{data_string[1]}.{data_string[2]}.{data_string[0]}'
 
+
 print(get_hided('Maestro 1596837868705199'))
-print(get_data("2018-07-11T02:26:18.671407"))
+print(get_data('2018-07-11T02:26:18.671407'))
 
