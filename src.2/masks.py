@@ -6,7 +6,7 @@ def get_hide():
     Функция получает номер карты и прячет все символы,
     не включая последние четыре
     """
-    return print(f'{card[:4]} {card[4:6]}** **** {card[-4:]}')
+    return f'{card[:4]} {card[4:6]}** **** {card[-4:]}'
 
 
 def get_bill():
@@ -15,7 +15,7 @@ def get_bill():
     только последние четыре знака.
     Остальные скрыты за '**'
     """
-    return print(f'**{bill[-4:]}')
+    return f'**{bill[-4:]}'
 
 get_hide()
 get_bill()
