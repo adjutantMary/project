@@ -1,5 +1,4 @@
-.flake8
-poetry.lock
-pyproject.toml
-.venv
-__init__.py
+venv/
+.idea/
+__pycache__/
+*.pyc
