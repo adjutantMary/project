@@ -1,10 +1,10 @@
 def get_state(state: str, states_list: list) -> list:
-    '''
+    """
     Функция получает на вход список словарей и возвращает словари, соответствующие ключу state.
     :param state: Опциональный пораметр(ключ)
     :param states_list: Список словарей, содержащие один из двух ключей
     :return: Список словарей, которые соответсвуют опциональному параметру
-    '''
+    """
 
     new_list = []
     for word in states_list:
@@ -14,12 +14,12 @@ def get_state(state: str, states_list: list) -> list:
 
 
 def get_sorted(states_list: list, type_sort: str):
-    '''
+    """
     Функция получает на вход список словарей и сортирует по дате.
     :param states_list: Список со словарем
     :param type_sort: Тип сортировки - по возрастанию 'High', или по убыванию 'Low'
     :return: Сортированный в зависимости от значения type_sort список
-    '''
+    """
     if type_sort == "High":
         return sorted(states_list, key=lambda x: x["date"])
     else:

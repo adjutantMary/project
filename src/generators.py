@@ -50,37 +50,37 @@ transactions = [
 
 
 def usd_generators(transactions: list, ping: str) -> Generator:
-    '''
+    """
     Функция, которая принимает список словарей transactions, в зависимости от ping, возвращает генератор id
     :param transactions: Список словарей
     :param ping: Строку с указанием code
     :return: Generator
-    '''
+    """
     for item in transactions:
-        if item['operationAmount']['currency']['code'] == ping:
+        if item["operationAmount"]["currency"]["code"] == ping:
             yield item
         else:
-            return print('Ошибка в указании параметра')
+            return print("Ошибка в указании параметра")
 
 
 def description_translator(transactions: list) -> Generator:
-    '''
+    """
     Функция принимает список словарей transactions и возвращает (генератор) по ключу description
     :param transactions: Список словарей
     :return: Generator
-    '''
+    """
     for item in transactions:
-        if item['description']:
-            yield item['description']
+        if item["description"]:
+            yield item["description"]
 
 
 def get_cards_number(start: int, end: int) -> Generator:
-    '''
+    """
     Функция получает диапазон, в котором будет происходить генерирование форматированных строк с номерами карт
     :param start: Начало диапазона
     :param end: Конец диапазона
     :return: Отформатированные строки в указанном диапазоне
-    '''
+    """
     for item in range(start, end + 1):
         card_number = f"{'0' * (16 - len(str(item)))}{item}"
         yield card_number[0:4] + " " + card_number[4:8] + " " + card_number[8:12] + " " + card_number[12:16]
