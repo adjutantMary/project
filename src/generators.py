@@ -87,7 +87,7 @@ def get_cards_number(start: int, end: int) -> Generator:
 
 
 # usd_transactions = usd_generators(transactions, "USD")
-#
+
 # for _ in range(2):
 #     print(next(usd_transactions)["id"])
 
