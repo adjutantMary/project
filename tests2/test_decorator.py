@@ -5,7 +5,7 @@ from src.decorators import log
 
 
 def test_decorator_log():
-    filename = 'test.txt'
+    filename = "test.txt"
     if os.path.exists(filename):
         os.remove(filename)
 
@@ -19,14 +19,6 @@ def test_decorator_log():
     with open(filename) as file:
         message = file.read().strip()
 
-    expected_return = f'{time}.foo ok'
-
-
+    expected_return = f"{time}.foo ok"
 
     assert message == expected_return
-
-
-
-
-
-

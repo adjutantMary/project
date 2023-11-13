@@ -2,6 +2,7 @@ from datetime import datetime
 from functools import wraps
 from typing import Any
 
+
 def log(filename: str = None):
     def wrapper(function):
         @wraps(function)
@@ -10,12 +11,12 @@ def log(filename: str = None):
 
             try:
                 final_result = function(*args, **kwargs)
-                message = f'{time}.{function.__name__} ok\n'
+                message = f"{time} {function.__name__} ok\n"
             except Exception as error:
-                message = f'{time} {function.__name__} error: {type(error).__name__}. Inputs: {args}, {kwargs}\n'
+                message = f"{time} {function.__name__} error: {type(error).__name__}. Inputs: {args}, {kwargs}\n"
                 final_result = None
             if filename:
-                with open(filename, 'a') as file:
+                with open(filename, "a") as file:
                     file.write(message)
             else:
                 print(message)
@@ -25,7 +26,6 @@ def log(filename: str = None):
         return inner
 
     return wrapper
-
 
 
 # @log(filename="mylog.txt")
