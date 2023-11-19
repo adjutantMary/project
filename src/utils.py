@@ -11,14 +11,17 @@ def get_json_file(path: str) -> list[dict]:
     '''
 
     try:
-        with open(path)as file:
+        with open(path, encoding='UTF-8')as file:
             json_dict = json.load(file)
             return json_dict
     except JSONDecodeError:
+        print('JSON-файл имеет неправильный формат ')
         return []
     except FileNotFoundError:
+        print('Файл не найден')
         return []
     except FileExistsError:
+        print('Файл не существует')
         return []
 
 
@@ -28,12 +31,12 @@ def get_transactions(transaction: dict) -> float:
     :param transaction: Принимает транзакцию типа dict
     :return:
     '''
-    for item in transaction:
-        if item['operationAmount']['currency']['code'] == 'RUB':
-            return float(item['operationAmount']['amount'])
 
-        else:
-            raise ValueError('Транзация выполнена не в рублях. Укажите транзакцию в рублях')
+    if transaction['operationAmount']['currency']['code'] == 'RUB':
+        return float(transaction['operationAmount']['amount'])
+
+    else:
+        raise ValueError('Транзация выполнена не в рублях. Укажите транзакцию в рублях')
 
 
 
