@@ -1,13 +1,13 @@
 import json
 from json import JSONDecodeError
-from typing import Union
 
 
-def get_json_file(path: str) -> Union:
+def get_json_file(path: str) -> list[dict]:
     '''
-
-    :param path:
-    :return:
+    Функция принимает на вход путь до JSON файла и
+    возвращает список транцакций
+    :param path: Путь к файлу типа str
+    :return: list[dict]
     '''
 
     try:
@@ -20,4 +20,11 @@ def get_json_file(path: str) -> Union:
         return []
     except FileExistsError:
         return []
+
+
+
+
+
+
+
 
