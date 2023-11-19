@@ -1,7 +1,7 @@
 from src.masks import get_hide, get_bill
 
 
-def get_hided(bill_number: str):
+def get_hided(bill_number: str) -> str:
     """
     Функция маскирует номер карты или счета.
     :param bill_number: Номер счета
@@ -23,7 +23,7 @@ def get_hided(bill_number: str):
         return f'{" ".join(alpha_list)} {get_hide(digit_list[0])}'
 
 
-def get_data(data: str):
+def get_data(data: str) -> str:
     """
     Функция принимает строку, возвращая измененную строку, форматируя ее в формат даты
     :param data: Строка для форматирования

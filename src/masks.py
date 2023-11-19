@@ -1,4 +1,4 @@
-def get_hide(card: str):
+def get_hide(card: str) -> str:
     """
     Функция получает номер карты, маскируя все символы, кроме первых 6 и последних 4.
     :param card: Номер карты
@@ -8,7 +8,7 @@ def get_hide(card: str):
     return f"{card[:4]} {card[4:6]}** **** {card[-4:]}"
 
 
-def get_bill(bill: str):
+def get_bill(bill: str) -> str:
     """
     Функция получает номер счета, макскируя все символы, кроме последних 4
     :param bill: Номер счета

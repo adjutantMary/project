@@ -1,10 +1,10 @@
 from datetime import datetime
 from functools import wraps
-from typing import Any
+from typing import Any, Optional, Callable
 
 
-def log(filename: str = None):
-    def wrapper(function):
+def log(filename: Optional[str] = None) -> Callable:
+    def wrapper(function: Callable) -> Callable:
         @wraps(function)
         def inner(*args: Any, **kwargs: Any) -> Any:
             time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
