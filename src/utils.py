@@ -22,6 +22,19 @@ def get_json_file(path: str) -> list[dict]:
         return []
 
 
+def get_transactions(transaction: dict) -> float:
+    '''
+    Функция получает транзакцию и возвращает результат типа float в зависимости от типа code
+    :param transaction: Принимает транзакцию типа dict
+    :return:
+    '''
+    for item in transaction:
+        if item['operationAmount']['currency']['code'] == 'RUB':
+            return float(item['operationAmount']['amount'])
+
+        else:
+            raise ValueError('Транзация выполнена не в рублях. Укажите транзакцию в рублях')
+
 
 
 
