@@ -1,4 +1,4 @@
-def get_state(state: str, states_list: list) -> list:
+def get_state(state: str, states_list: list) -> list[dict]:
     """
     Функция получает на вход список словарей и возвращает словари, соответствующие ключу state.
     :param state: Опциональный пораметр(ключ)
@@ -13,7 +13,7 @@ def get_state(state: str, states_list: list) -> list:
     return new_list
 
 
-def get_sorted(states_list: list, type_sort: str):
+def get_sorted(states_list: list, type_sort: str) -> list[dict]:
     """
     Функция получает на вход список словарей и сортирует по дате.
     :param states_list: Список со словарем
