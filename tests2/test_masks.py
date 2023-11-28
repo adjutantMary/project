@@ -8,7 +8,7 @@ def num():
 
 
 def test_masks_correct_work(num):
-    assert get_bill(num) == "**5229"
+    assert get_bill(num) == "Некорректно введенные данные"
     assert get_hide(num) == "8990 92** **** 5229"
     assert type(get_bill(num)) == str
     assert type(get_hide(num)) == str
