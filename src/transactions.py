@@ -1,5 +1,7 @@
 import pandas as pd
 import json
+import os
+from data.path import PATH
 
 
 def get_csv_transactions(path: str) -> dict:
@@ -26,4 +28,3 @@ def get_xlsx_transactions(path: str) -> dict:
     return data.to_dict("split")
 
 
-print(get_csv_transactions('transactions'))
