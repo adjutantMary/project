@@ -26,5 +26,3 @@ def get_xlsx_transactions(path: str) -> dict:
         data = pd.read_excel(file)
 
     return data.to_dict("split")
-
-
