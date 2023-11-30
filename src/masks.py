@@ -40,5 +40,5 @@ def get_bill(bill: str) -> str:
     return f"**{bill[-4:]}"
 
 
-# print(get_hide("8990922113665229"))
+print(get_hide("8990922113665229"))
 # print(get_bill("8990922113665229"))
