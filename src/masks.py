@@ -32,13 +32,8 @@ def get_bill(bill: str) -> str:
     :param bill: Номер счета
     :return: Отформатированную строку с маскировкой
     """
-    bill_logger = logging.getLogger(__name__)
     if len(bill.replace(" ", "")) != 20:
         logger.error("Введенный счет не соответствует стандарту")
         return "Некорректно введенные данные"
     logger.info(f"**{bill[-4:]}")
     return f"**{bill[-4:]}"
-
-
-print(get_hide("8990922113665229"))
-# print(get_bill("8990922113665229"))

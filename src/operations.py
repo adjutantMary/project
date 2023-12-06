@@ -1,4 +1,5 @@
 import re
+from collections import Counter
 
 
 def get_operations(data: list[dict], search: str) -> list[dict]:
@@ -9,38 +10,36 @@ def get_operations(data: list[dict], search: str) -> list[dict]:
     :param search: str с описанием операции
     :return:
     """
-    new_transaction = []
+    operations = []
     for element in data:
         description = element["description"]
         try:
             if re.search(search, description):
-                new_transaction.append(element)
+                operations.append(element)
         except KeyError:
             continue
         except TypeError:
             continue
-    return new_transaction
+    return operations
 
 
 def get_filter_dict(transactions: list[dict], category: dict) -> dict:
     """
     Функция принимает на вход список словарей с данными о банковских операциях и словарь категорий.
     Возвращает словарь с названиями категорий и количеством операций в каждой.
-    :param transactions: list[dict] с данными
+    :param transactions: list[dict] с операциями
     :param category: dict с названием категорий
-    :return:
+    :return: словарь с подсчитанными операциями по категории
     """
+    operations = []
     for operation in transactions:
-        try:
-            for keys in category:
-                if keys.upper() in operation["description"].upper():
-                    category[keys] += 1
-        except AttributeError:
-            continue
-    return category
+        if operation["description"] in category.keys():
+            operations.append(operation["description"])
+    counter = dict(Counter(operations))
+    return counter
 
 
-# print(get_operations([
+# print(get_filter_dict([
 #   {
 #     "id": 441945886,
 #     "state": "EXECUTED",
@@ -70,4 +69,4 @@ def get_filter_dict(transactions: list[dict], category: dict) -> dict:
 #     "description": "Перевод организации",
 #     "from": "MasterCard 7158300734726758",
 #     "to": "Счет 35383033474447895560"
-#   }], 'Перевод'))
+#   }], {'Перевод организации': 0}))

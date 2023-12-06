@@ -1,7 +1,4 @@
 import pandas as pd
-import json
-import os
-from data.path import PATH
 
 
 def get_csv_transactions(path: str) -> dict:
